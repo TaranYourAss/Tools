@@ -1,6 +1,7 @@
 ﻿
 function data-collection {
-$LogicalProcessors = (Get-WmiObject –class Win32_processor -Property NumberOfLogicalProcessors).NumberOfLogicalProcessors;
+#$LogicalProcessors = (Get-WmiObject –class Win32_processor -Property NumberOfLogicalProcessors).NumberOfLogicalProcessors;
+$LogicalProcessors = (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors
 
 $DATA=get-process -IncludeUserName `
     | select `
